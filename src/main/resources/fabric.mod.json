@@ -32,7 +32,7 @@
 		}
 	},
 	"depends": {
-		"fabricloader": ">=0.15.11",
+		"fabric": "*",
 		"minecraft": ">=1.20.5",
 		"fabric-language-kotlin": ">=1.9.24"
 	}
