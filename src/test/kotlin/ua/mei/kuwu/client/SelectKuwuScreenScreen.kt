@@ -34,13 +34,19 @@ class SelectKuwuScreenScreen : BaseKowoScreen<FlowLayout>() {
                 horizontalAlignment(HorizontalAlignment.CENTER)
 
                 button {
+                    message = "button test".literal()
+
+                    onPress {
+                        client?.setScreen(ButtonTestScreen())
+                    }
+                }
+                button {
                     message = "optimization test".literal()
 
                     onPress {
                         client?.setScreen(TooManyComponentsScreen())
                     }
                 }
-
                 button {
                     message = "sizenite".literal()
 
