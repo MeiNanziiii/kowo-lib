@@ -1,0 +1,29 @@
+{
+	"schemaVersion": 1,
+	"id": "kuwu",
+	"version": "${version}",
+	"name": "κuωu",
+	"description": "κoωo testmod",
+	"authors": [
+		"MeiNanziiii"
+	],
+	"contact": {
+		"sources": "https://github.com/MeiNanziiii/kowo-lib"
+	},
+	"license": "MIT",
+	"environment": "*",
+	"entrypoints": {
+		"main": [
+			{
+				"value": "ua.mei.kuwu.Kuwu",
+				"adapter": "kotlin"
+			}
+		]
+	},
+	"depends": {
+		"fabricloader": ">=0.15.11",
+		"minecraft": ">=1.20.5",
+		"fabric-language-kotlin": ">=1.9.24",
+		"kowo": "*"
+	}
+}

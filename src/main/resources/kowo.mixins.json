@@ -1,0 +1,13 @@
+{
+    "required": true,
+    "package": "ua.mei.kowo.mixin",
+    "compatibilityLevel": "JAVA_21",
+    "mixins": [
+        "FlowLayoutAccessor",
+        "GridLayoutAccessor",
+        "KowoEntityComponent"
+    ],
+    "injectors": {
+        "defaultRequire": 1
+	}
+}

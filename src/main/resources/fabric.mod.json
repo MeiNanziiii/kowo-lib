@@ -1,0 +1,39 @@
+{
+	"schemaVersion": 1,
+	"id": "kowo",
+	"version": "${version}",
+	"name": "κoωo",
+	"description": "Fancy™ kotlin syntax for oωo-lib",
+	"authors": [
+		"MeiNanziiii"
+	],
+	"contact": {
+		"sources": "https://github.com/MeiNanziiii/kowo-lib"
+	},
+	"license": "MIT",
+	"icon": "assets/kowo/icon.png",
+	"environment": "*",
+	"entrypoints": {
+		"main": [
+			{
+				"value": "ua.mei.kowo.Kowo",
+				"adapter": "kotlin"
+			}
+		]
+	},
+	"mixins": [
+		"kowo.mixins.json"
+	],
+	"custom": {
+		"modmenu": {
+			"badges": [
+				"library"
+			]
+		}
+	},
+	"depends": {
+		"fabricloader": ">=0.15.11",
+		"minecraft": ">=1.20.5",
+		"fabric-language-kotlin": ">=1.9.24"
+	}
+}
