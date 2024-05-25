@@ -121,6 +121,12 @@ fun ParentComponent.spacer(init: SpacerComponent.() -> Unit): SpacerComponent {
 
 /**
  * Does not support built-in components or components with protected constructors
+ *
+ * ```
+ * component<CustomComponent>(arg1, arg2) {
+ *     value1 = value
+ * }
+ * ```
  */
 inline fun <reified T : Component> ParentComponent.component(vararg args: Any, noinline init: T.() -> Unit): T {
     val constructor = T::class.constructors.firstOrNull { it.parameters.size == args.size }
@@ -133,6 +139,12 @@ inline fun <reified T : Component> ParentComponent.component(vararg args: Any, n
 
 /**
  * Compatible with all components
+ *
+ * ```
+ * component(CustomComponent(arg1, arg2)) {
+ *     value1 = value
+ * }
+ * ```
  */
 fun <T : Component> ParentComponent.component(component: T, init: T.() -> Unit): T {
     component.init()
