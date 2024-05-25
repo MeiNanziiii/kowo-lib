@@ -4,7 +4,7 @@ plugins {
 	id "org.jetbrains.kotlin.jvm" version "1.9.24"
 }
 
-version = project.mod_version
+version = "$mod_version$build_symbol+$minecraft_version"
 group = project.maven_group
 
 base {
@@ -47,7 +47,7 @@ dependencies {
 	modImplementation "net.fabricmc.fabric-api:fabric-api:${project.fabric_version}"
 	modImplementation "net.fabricmc:fabric-language-kotlin:${project.fabric_kotlin_version}"
 
-	modImplementation include("io.wispforest:owo-lib:${project.mod_version}")
+	modImplementation include("io.wispforest:owo-lib:$mod_version+$minecraft_version")
 }
 
 processResources {

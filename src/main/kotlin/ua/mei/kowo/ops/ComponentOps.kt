@@ -12,6 +12,7 @@ import io.wispforest.owo.ui.component.SmallCheckboxComponent
 import io.wispforest.owo.ui.component.SpacerComponent
 import io.wispforest.owo.ui.component.TextAreaComponent
 import io.wispforest.owo.ui.component.TextBoxComponent
+import io.wispforest.owo.ui.core.Component
 import io.wispforest.owo.ui.core.ParentComponent
 import io.wispforest.owo.ui.core.Sizing
 import net.minecraft.entity.Entity
@@ -118,4 +119,23 @@ fun ParentComponent.spacer(init: SpacerComponent.() -> Unit): SpacerComponent {
 // Extensions
 // ----------
 
-// TODO: custom components support
+/**
+ * Does not support built-in components or components with protected constructors
+ */
+inline fun <reified T : Component> ParentComponent.component(vararg args: Any, noinline init: T.() -> Unit): T {
+    val constructor = T::class.constructors.firstOrNull { it.parameters.size == args.size }
+        ?: throw IllegalArgumentException("No constructor found with ${args.size} parameters")
+    val component = constructor.call(*args)
+    component.init()
+    this.tryChild(component)
+    return component
+}
+
+/**
+ * Compatible with all components
+ */
+fun <T : Component> ParentComponent.component(component: T, init: T.() -> Unit): T {
+    component.init()
+    this.tryChild(component)
+    return component
+}

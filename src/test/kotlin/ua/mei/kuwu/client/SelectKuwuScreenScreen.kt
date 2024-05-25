@@ -3,7 +3,6 @@ package ua.mei.kuwu.client
 import io.wispforest.owo.ui.container.Containers
 import io.wispforest.owo.ui.container.FlowLayout
 import io.wispforest.owo.ui.core.*
-import kotlinx.coroutines.runBlocking
 import ua.mei.kowo.ops.button
 import ua.mei.kowo.ops.label
 import ua.mei.kowo.ops.literal
