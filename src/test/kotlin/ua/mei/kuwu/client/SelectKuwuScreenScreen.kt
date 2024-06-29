@@ -9,6 +9,7 @@ import ua.mei.kowo.ops.literal
 import ua.mei.kowo.ops.verticalFlow
 import ua.mei.kowo.ui.base.BaseKowoScreen
 
+
 class SelectKuwuScreenScreen : BaseKowoScreen<FlowLayout>() {
     override fun createRoot(horizontalSizing: Sizing, verticalSizing: Sizing): FlowLayout {
         return Containers.verticalFlow(horizontalSizing, verticalSizing)

@@ -6,6 +6,7 @@ import io.wispforest.owo.ui.core.Sizing
 import net.minecraft.text.Text
 import ua.mei.kowo.mixin.FlowLayoutAccessor
 
+
 class KowoCollapsibleContainer : CollapsibleContainer(Sizing.content(), Sizing.content(), Text.empty(), false) {
     fun title(): Text {
         return ((titleLayout as FlowLayoutAccessor).children[0] as LabelComponent).text()
