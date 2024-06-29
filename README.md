@@ -18,9 +18,9 @@ repositories {
 }
 
 dependencies {
-    modImplementation include("maven.modrinth:kowo-lib:0.12.8+1.20.5")
+    modImplementation include("maven.modrinth:kowo-lib:0.12.10+1.21")
     // only if you plan to use owo-config
-    // annotationProcessor "io.wispforest:owo-lib:0.12.8+1.20.5"
+    // annotationProcessor "io.wispforest:owo-lib:0.12.10+1.21"
 }
 ```
 
