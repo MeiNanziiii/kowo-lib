@@ -2,11 +2,11 @@
 
 Fancy™ kotlin syntax for [oωo-lib](https://modrinth.com/mod/owo-lib)
 
-|        Pros       |                 Cons                  |
-|-------------------|---------------------------------------|
-|Greater flexibility|Limited support for oωo-lib features   |
-|Fancy™ syntax      |Updates arrive later than oωo-lib      |
-|Uses kotlin        |Performance slightly lower than oωo-lib|
+| Pros                | Cons                                    |
+|---------------------|-----------------------------------------|
+| Greater flexibility | Limited support for oωo-lib features    |
+| Fancy™ syntax       | Updates arrive later than oωo-lib       |
+| Uses kotlin         | Performance slightly lower than oωo-lib |
 
 # Setup
 
@@ -18,9 +18,9 @@ repositories {
 }
 
 dependencies {
-    modImplementation include("maven.modrinth:kowo-lib:0.12.10+1.21")
+    modImplementation include("maven.modrinth:kowo-lib:0.12.20+1.21.4")
     // only if you plan to use owo-config
-    // annotationProcessor "io.wispforest:owo-lib:0.12.10+1.21"
+    // annotationProcessor "io.wispforest:owo-lib:0.12.20+1.21.4"
 }
 ```
 
