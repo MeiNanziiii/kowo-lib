@@ -5,6 +5,23 @@ plugins {
     id("fabric-loom") version "1.10-SNAPSHOT"
 }
 
+loom {
+    runs {
+        create("testClient") {
+            client()
+            ideConfigGenerated(project.rootProject == project)
+            name("Test Client")
+            source(sourceSets["test"])
+        }
+        create("testServer") {
+            server()
+            ideConfigGenerated(project.rootProject == project)
+            name("Test Server")
+            source(sourceSets["test"])
+        }
+    }
+}
+
 base.archivesName.set("kowo")
 
 version = libs.versions.owo.lib.get()
@@ -29,6 +46,8 @@ dependencies {
 java {
     sourceCompatibility = JavaVersion.VERSION_21
     targetCompatibility = JavaVersion.VERSION_21
+
+    withSourcesJar()
 }
 
 kotlin {
@@ -43,7 +62,8 @@ tasks {
 
         filesMatching("fabric.mod.json") {
             expand(
-                "version" to version
+                "version" to version,
+                "minecraft_version" to libs.versions.minecraft.get()
             )
         }
     }

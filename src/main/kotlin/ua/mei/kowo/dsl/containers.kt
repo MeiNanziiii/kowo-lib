@@ -18,7 +18,7 @@ fun verticalFlow(horizontalSizing: Sizing, verticalSizing: Sizing): FlowLayout {
 }
 
 fun horizontalFlow(horizontalSizing: Sizing, verticalSizing: Sizing): FlowLayout {
-    return Containers.horizontalFlow(horizontalSizing, verticalSizing, )
+    return Containers.horizontalFlow(horizontalSizing, verticalSizing)
 }
 
 fun ltrTextFlow(horizontalSizing: Sizing, verticalSizing: Sizing): FlowLayout {
