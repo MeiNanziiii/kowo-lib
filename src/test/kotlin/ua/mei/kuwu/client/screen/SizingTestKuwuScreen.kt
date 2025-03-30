@@ -3,43 +3,40 @@ package ua.mei.kuwu.client.screen
 import io.wispforest.owo.ui.base.BaseOwoScreen
 import io.wispforest.owo.ui.container.FlowLayout
 import io.wispforest.owo.ui.core.*
+import net.minecraft.text.ClickEvent
 import ua.mei.kowo.dsl.*
 
-class SelectKuwuScreenScreen : BaseOwoScreen<FlowLayout>() {
+class SizingTestKuwuScreen : BaseOwoScreen<FlowLayout>() {
     override fun createAdapter(): OwoUIAdapter<FlowLayout> {
         return OwoUIAdapter.create(this, ::verticalFlow)
     }
 
     override fun build(rootComponent: FlowLayout) {
         root {
-            surface = Surface.flat(0x77000000)
             verticalAlignment = VerticalAlignment.CENTER
             horizontalAlignment = HorizontalAlignment.CENTER
 
             children {
-                +label("Available screens".literal).apply {
-                    margin {
-                        bottom = 5
-                    }
-                    shadow = true
-                }
-                +verticalFlow(Sizing.content(), Sizing.content()).apply {
+                +stack(Sizing.content(), Sizing.content()).apply {
                     padding {
-                        all(5)
+                        all(15)
                     }
-                    gap = 6
-                    surface = Surface.PANEL
                     horizontalAlignment = HorizontalAlignment.CENTER
+                    surface = Surface.panelWithInset(6)
+
+                    val animation: Animation<Sizing> = horizontalSizing().animate(500, Easing.CUBIC, 75.fill)
 
                     children {
-                        +button("optimization test".literal) {
-                            client!!.setScreen(TooManyComponentsKuwuScreen())
-                        }
-                        +button("sizenite".literal) {
-                            client!!.setScreen(SizingTestKuwuScreen())
+                        +button("initialize sizenite".literal).apply {
+                            horizontalSizing = 50.fill
+
+                            onPress {
+                                animation.reverse()
+                            }
                         }
                     }
                 }
+                +label("bruh".literal.styled { it.withClickEvent(ClickEvent(ClickEvent.Action.OPEN_URL, "https://wispforest.io")) })
             }
         }
     }

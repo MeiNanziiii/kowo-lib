@@ -70,6 +70,18 @@ var ParentComponent.horizontalAlignment: HorizontalAlignment
         this.horizontalAlignment(value)
     }
 
+var Component.verticalSizing: Sizing
+    get() = this.verticalSizing().get()
+    set(value) {
+        this.verticalSizing(value)
+    }
+
+var Component.horizontalSizing: Sizing
+    get() = this.horizontalSizing().get()
+    set(value) {
+        this.horizontalSizing(value)
+    }
+
 var FlowLayout.gap: Int
     get() = this.gap()
     set(value) {

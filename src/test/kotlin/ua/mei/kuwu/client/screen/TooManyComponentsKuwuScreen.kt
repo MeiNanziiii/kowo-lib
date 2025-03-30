@@ -1,7 +1,6 @@
 package ua.mei.kuwu.client.screen
 
 import io.wispforest.owo.ui.base.BaseOwoScreen
-import io.wispforest.owo.ui.container.Containers
 import io.wispforest.owo.ui.container.FlowLayout
 import io.wispforest.owo.ui.core.*
 import net.minecraft.item.Items
@@ -10,7 +9,7 @@ import java.util.concurrent.ThreadLocalRandom
 
 class TooManyComponentsKuwuScreen : BaseOwoScreen<FlowLayout>() {
     override fun createAdapter(): OwoUIAdapter<FlowLayout> {
-        return OwoUIAdapter.create(this, Containers::verticalFlow)
+        return OwoUIAdapter.create(this, ::verticalFlow)
     }
 
     override fun build(rootComponent: FlowLayout) {
@@ -20,11 +19,6 @@ class TooManyComponentsKuwuScreen : BaseOwoScreen<FlowLayout>() {
 
             children {
                 +verticalScroll(45.fill, 45.fill, verticalFlow(Sizing.content(), Sizing.content()).apply {
-                    padding {
-                        all(5)
-                    }
-                    surface = Surface.DARK_PANEL
-
                     children {
                         (0..50000).forEach {
                             +collapsible(Sizing.content(), Sizing.content(), ThreadLocalRandom.current().nextInt(100000).toString().literal).apply {
@@ -34,7 +28,12 @@ class TooManyComponentsKuwuScreen : BaseOwoScreen<FlowLayout>() {
                             }
                         }
                     }
-                })
+                }).apply {
+                    padding {
+                        all(5)
+                    }
+                    surface = Surface.DARK_PANEL
+                }
             }
         }
     }
