@@ -38,6 +38,9 @@ class SelectKuwuScreenScreen : BaseOwoScreen<FlowLayout>() {
                         +button("sizenite".literal) {
                             client!!.setScreen(SizingTestKuwuScreen())
                         }
+                        +button("dsl test".literal) {
+                            client!!.setScreen(DSLTestKuwuScreen())
+                        }
                     }
                 }
             }

@@ -5,6 +5,7 @@ import io.wispforest.owo.ui.component.LabelComponent
 import io.wispforest.owo.ui.container.FlowLayout
 import io.wispforest.owo.ui.container.StackLayout
 import io.wispforest.owo.ui.core.*
+import net.minecraft.client.gui.tooltip.TooltipComponent
 import net.minecraft.text.MutableText
 import net.minecraft.text.Text
 import ua.mei.kowo.mixin.BaseOwoScreenAccessor
@@ -70,6 +71,18 @@ var ParentComponent.horizontalAlignment: HorizontalAlignment
         this.horizontalAlignment(value)
     }
 
+var ParentComponent.allowOverflow: Boolean
+    get() = this.allowOverflow()
+    set(value) {
+        this.allowOverflow(value)
+    }
+
+var ParentComponent.positioning: Positioning
+    get() = this.positioning().get()
+    set(value) {
+        this.positioning(value)
+    }
+
 var Component.verticalSizing: Sizing
     get() = this.verticalSizing().get()
     set(value) {
@@ -80,6 +93,48 @@ var Component.horizontalSizing: Sizing
     get() = this.horizontalSizing().get()
     set(value) {
         this.horizontalSizing(value)
+    }
+
+var Component.sizing: Sizing
+    get() = throw UnsupportedOperationException()
+    set(value) {
+        this.sizing(value)
+    }
+
+var Component.cursorStyle: CursorStyle
+    get() = this.cursorStyle()
+    set(value) {
+        this.cursorStyle(value)
+    }
+
+var Component.tooltip: MutableList<TooltipComponent>
+    get() = this.tooltip()!!
+    set(value) {
+        this.tooltip(value)
+    }
+
+var Component.id: String?
+    get() = this.id()
+    set(value) {
+        this.id(value)
+    }
+
+var Component.zIndex: Int
+    get() = this.zIndex()
+    set(value) {
+        this.zIndex(value)
+    }
+
+var Component.x: Int
+    get() = this.x()
+    set(value) {
+        this.updateX(value)
+    }
+
+var Component.y: Int
+    get() = this.y()
+    set(value) {
+        this.updateY(value)
     }
 
 var FlowLayout.gap: Int
@@ -120,12 +175,10 @@ class InsetsBuilder {
     fun build(): Insets {
         return Insets.of(top, bottom, left, right)
     }
+}
 
-    companion object {
-        operator fun invoke(builder: InsetsBuilder.() -> Unit): Insets {
-            return InsetsBuilder().apply(builder).build()
-        }
-    }
+fun insetsBuilder(builder: InsetsBuilder.() -> Unit): Insets {
+    return InsetsBuilder().apply(builder).build()
 }
 
 fun Component.margin(builder: InsetsBuilder.() -> Unit) {
