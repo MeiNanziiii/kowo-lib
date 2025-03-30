@@ -1,7 +1,7 @@
 {
     "schemaVersion": 1,
     "id": "kuwu",
-    "version": "${version}",
+    "version": "1.0.0",
     "name": "κuωu",
     "description": "κoωo testmod",
     "authors": [
@@ -18,12 +18,18 @@
                 "value": "ua.mei.kuwu.Kuwu",
                 "adapter": "kotlin"
             }
+        ],
+        "client": [
+            {
+                "value": "ua.mei.kuwu.client.KuwuClient",
+                "adapter": "kotlin"
+            }
         ]
     },
     "depends": {
         "fabric": "*",
         "fabric-language-kotlin": "*",
-        "minecraft": ">=${minecraft_version}",
+        "minecraft": ">=1.21.4",
         "kowo": "*"
     }
 }

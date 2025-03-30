@@ -53,6 +53,10 @@ fun collapsible(horizontalSizing: Sizing, verticalSizing: Sizing, title: Text, e
     return Containers.collapsible(horizontalSizing, verticalSizing, title, expanded)
 }
 
+fun collapsible(horizontalSizing: Sizing, verticalSizing: Sizing, title: Text): CollapsibleContainer {
+    return Containers.collapsible(horizontalSizing, verticalSizing, title, false)
+}
+
 fun <C : Component> overlay(child: C): OverlayContainer<C> {
     return Containers.overlay(child)
 }
