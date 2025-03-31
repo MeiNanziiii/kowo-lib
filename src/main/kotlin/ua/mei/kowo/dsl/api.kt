@@ -3,18 +3,20 @@ package ua.mei.kowo.dsl
 import io.wispforest.owo.ui.base.BaseOwoScreen
 import io.wispforest.owo.ui.component.LabelComponent
 import io.wispforest.owo.ui.container.FlowLayout
+import io.wispforest.owo.ui.container.GridLayout
 import io.wispforest.owo.ui.container.StackLayout
 import io.wispforest.owo.ui.core.*
 import net.minecraft.client.gui.tooltip.TooltipComponent
 import net.minecraft.text.MutableText
 import net.minecraft.text.Text
 import ua.mei.kowo.mixin.BaseOwoScreenAccessor
+import ua.mei.kowo.mixin.GridLayoutAccessor
 
 // -------
 // oωo-lib
 // -------
 
-class ChildrenHandler() {
+class ChildrenBuilder() {
     val children: MutableList<Component> = mutableListOf()
 
     operator fun <C : Component> C.unaryPlus(): C {
@@ -23,18 +25,28 @@ class ChildrenHandler() {
     }
 }
 
-fun ParentComponent.children(builder: ChildrenHandler.() -> Unit) {
-    ChildrenHandler().apply(builder).children.forEach(this::tryChild)
+fun GridLayout.children(builder: ChildrenBuilder.() -> Unit) {
+    this as GridLayoutAccessor
+
+    var index: Int = 0
+
+    for (child in ChildrenBuilder().apply(builder).children) {
+        while (index < this.children.size && this.children[index] != null) {
+            index++
+        }
+        if (index >= this.children.size) break
+
+        child(child, index / this.columns, index % this.columns)
+        index++
+    }
 }
 
-fun ParentComponent.tryChild(child: Component) {
-    if (this is FlowLayout) {
-        this.child(child)
-    } else if (this is StackLayout) {
-        this.child(child)
-    } else {
-        throw UnsupportedOperationException("This type of layout does not support adding a child: ${this::class.simpleName}")
-    }
+fun FlowLayout.children(builder: ChildrenBuilder.() -> Unit) {
+    children(ChildrenBuilder().apply(builder).children)
+}
+
+fun StackLayout.children(builder: ChildrenBuilder.() -> Unit) {
+    children(ChildrenBuilder().apply(builder).children)
 }
 
 val Int.fixed: Sizing

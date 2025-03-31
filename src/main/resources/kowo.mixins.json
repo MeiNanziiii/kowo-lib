@@ -3,12 +3,11 @@
     "minVersion": "0.8",
     "package": "ua.mei.kowo.mixin",
     "compatibilityLevel": "JAVA_21",
-    "mixins": [
+    "client": [
+        "BaseOwoScreenAccessor",
+        "GridLayoutAccessor"
     ],
     "injectors": {
         "defaultRequire": 1
-    },
-    "client": [
-        "BaseOwoScreenAccessor"
-    ]
+    }
 }
