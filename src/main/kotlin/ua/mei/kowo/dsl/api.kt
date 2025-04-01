@@ -1,12 +1,14 @@
 package ua.mei.kowo.dsl
 
 import io.wispforest.owo.ui.base.BaseOwoScreen
-import io.wispforest.owo.ui.component.LabelComponent
+import io.wispforest.owo.ui.component.*
 import io.wispforest.owo.ui.container.FlowLayout
 import io.wispforest.owo.ui.container.GridLayout
 import io.wispforest.owo.ui.container.StackLayout
 import io.wispforest.owo.ui.core.*
 import net.minecraft.client.gui.tooltip.TooltipComponent
+import net.minecraft.entity.Entity
+import net.minecraft.item.ItemStack
 import net.minecraft.text.MutableText
 import net.minecraft.text.Text
 import ua.mei.kowo.mixin.BaseOwoScreenAccessor
@@ -155,12 +157,6 @@ var FlowLayout.gap: Int
         this.gap(value)
     }
 
-var LabelComponent.shadow: Boolean
-    get() = this.shadow()
-    set(value) {
-        this.shadow(value)
-    }
-
 class InsetsBuilder {
     var top: Int = 0
     var bottom: Int = 0
@@ -200,6 +196,234 @@ fun Component.margin(builder: InsetsBuilder.() -> Unit) {
 fun ParentComponent.padding(builder: InsetsBuilder.() -> Unit) {
     this.padding(InsetsBuilder().apply(builder).build())
 }
+
+var ButtonComponent.textShadow: Boolean
+    get() = this.textShadow()
+    set(value) {
+        this.textShadow(value)
+    }
+
+var TextAreaComponent.maxLines: Int
+    get() = this.maxLines()
+    set(value) {
+        this.maxLines(value)
+    }
+
+var TextAreaComponent.displayCharCount: Boolean
+    get() = this.displayCharCount()
+    set(value) {
+        this.displayCharCount(value)
+    }
+
+var <E : Entity> EntityComponent<E>.allowMouseRotation: Boolean
+    get() = this.allowMouseRotation()
+    set(value) {
+        this.allowMouseRotation(value)
+    }
+
+var <E : Entity> EntityComponent<E>.lookAtCursor: Boolean
+    get() = this.lookAtCursor()
+    set(value) {
+        this.lookAtCursor(value)
+    }
+
+var <E : Entity> EntityComponent<E>.scale: Float
+    get() = this.scale()
+    set(value) {
+        this.scale(value)
+    }
+
+var <E : Entity> EntityComponent<E>.scaleToFit: Boolean
+    get() = this.scaleToFit()
+    set(value) {
+        this.scaleToFit(value)
+    }
+
+var <E : Entity> EntityComponent<E>.showNametag: Boolean
+    get() = this.showNametag()
+    set(value) {
+        this.showNametag(value)
+    }
+
+var ItemComponent.setTooltipFromStack: Boolean
+    get() = this.setTooltipFromStack()
+    set(value) {
+        this.setTooltipFromStack(value)
+    }
+
+var ItemComponent.stack: ItemStack
+    get() = this.stack()
+    set(value) {
+        this.stack(value)
+    }
+
+var ItemComponent.showOverlay: Boolean
+    get() = this.showOverlay()
+    set(value) {
+        this.showOverlay(value)
+    }
+
+var LabelComponent.text: Text
+    get() = this.text()
+    set(value) {
+        this.text(value)
+    }
+
+var LabelComponent.maxWidth: Int
+    get() = this.maxWidth()
+    set(value) {
+        this.maxWidth(value)
+    }
+
+var LabelComponent.shadow: Boolean
+    get() = this.shadow()
+    set(value) {
+        this.shadow(value)
+    }
+
+var LabelComponent.color: Color
+    get() = this.color().get()
+    set(value) {
+        this.color(value)
+    }
+
+var LabelComponent.verticalTextAlignment: VerticalAlignment
+    get() = this.verticalTextAlignment()
+    set(value) {
+        this.verticalTextAlignment(value)
+    }
+
+var LabelComponent.horizontalTextAlignment: HorizontalAlignment
+    get() = this.horizontalTextAlignment()
+    set(value) {
+        this.horizontalTextAlignment(value)
+    }
+
+var LabelComponent.lineHeight: Int
+    get() = this.lineHeight()
+    set(value) {
+        this.lineHeight(value)
+    }
+
+var LabelComponent.lineSpacing: Int
+    get() = this.lineSpacing()
+    set(value) {
+        this.lineSpacing(value)
+    }
+
+var CheckboxComponent.checked: Boolean
+    get() = this.isChecked
+    set(value) {
+        this.checked(value)
+    }
+
+var SliderComponent.value: Double
+    get() = this.value()
+    set(value) {
+        this.value(value)
+    }
+
+var SliderComponent.scrollStep: Double
+    get() = this.scrollStep()
+    set(value) {
+        this.scrollStep(value)
+    }
+
+var DiscreteSliderComponent.snap: Boolean
+    get() = this.snap()
+    set(value) {
+        this.snap(value)
+    }
+
+var SpriteComponent.blend: Boolean
+    get() = this.blend()
+    set(value) {
+        this.blend(value)
+    }
+
+var TextureComponent.visibleArea: PositionedRectangle
+    get() = this.visibleArea().get()
+    set(value) {
+        this.visibleArea(value)
+    }
+
+var TextureComponent.blend: Boolean
+    get() = this.blend()
+    set(value) {
+        this.blend(value)
+    }
+
+var BoxComponent.fill: Boolean
+    get() = this.fill()
+    set(value) {
+        this.fill(value)
+    }
+
+var BoxComponent.direction: BoxComponent.GradientDirection
+    get() = this.direction()
+    set(value) {
+        this.direction(value)
+    }
+
+var BoxComponent.color: Color
+    get() = throw UnsupportedOperationException()
+    set(value) {
+        this.color(value)
+    }
+
+var BoxComponent.startColor: Color
+    get() = this.startColor().get()
+    set(value) {
+        this.startColor(value)
+    }
+
+var BoxComponent.endColor: Color
+    get() = this.endColor().get()
+    set(value) {
+        this.endColor(value)
+    }
+
+var SlimSliderComponent.value: Double
+    get() = this.value()
+    set(value) {
+        this.value(value)
+    }
+
+var SlimSliderComponent.min: Double
+    get() = this.min()
+    set(value) {
+        this.min(value)
+    }
+
+var SlimSliderComponent.max: Double
+    get() = this.max()
+    set(value) {
+        this.max(value)
+    }
+
+var SlimSliderComponent.stepSize: Double
+    get() = this.stepSize()
+    set(value) {
+        this.stepSize(value)
+    }
+
+var SmallCheckboxComponent.checked: Boolean
+    get() = this.checked()
+    set(value) {
+        this.checked(value)
+    }
+
+var SmallCheckboxComponent.label: Text
+    get() = this.label()
+    set(value) {
+        this.label(value)
+    }
+
+var SmallCheckboxComponent.labelShadow: Boolean
+    get() = this.labelShadow()
+    set(value) {
+        this.labelShadow(value)
+    }
 
 // ---------
 // Minecraft

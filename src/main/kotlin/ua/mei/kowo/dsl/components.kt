@@ -56,7 +56,7 @@ fun textArea(horizontalSizing: Sizing, verticalSizing: Sizing, text: String): Te
 // Default Components
 // ------------------
 
-fun <E : Entity> entity(sizing: Sizing, type: EntityType<E>, nbt: NbtCompound?): EntityComponent<E> {
+fun <E : Entity> entity(sizing: Sizing, type: EntityType<E>, nbt: NbtCompound? = null): EntityComponent<E> {
     return Components.entity(sizing, type, nbt)
 }
 
@@ -76,7 +76,7 @@ fun block(state: BlockState, entity: BlockEntity): BlockComponent {
     return Components.block(state, entity)
 }
 
-fun block(state: BlockState, nbt: NbtCompound?): BlockComponent {
+fun block(state: BlockState, nbt: NbtCompound? = null): BlockComponent {
     return Components.block(state, nbt)
 }
 
