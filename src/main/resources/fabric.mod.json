@@ -10,7 +10,7 @@
     "contact": {
         "sources": "https://github.com/MeiNanziiii/kowo-lib"
     },
-    "license": "CC0-1.0",
+    "license": "MIT",
     "icon": "assets/kowo/icon.png",
     "environment": "*",
     "entrypoints": {
