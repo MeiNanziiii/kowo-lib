@@ -4,7 +4,6 @@ import io.wispforest.owo.ui.base.BaseOwoScreen
 import io.wispforest.owo.ui.container.FlowLayout
 import io.wispforest.owo.ui.core.*
 import ua.mei.kowo.dsl.*
-import ua.mei.kowo.util.KowoSurface
 
 class DSLTestKuwuScreen : BaseOwoScreen<FlowLayout>() {
     override fun createAdapter(): OwoUIAdapter<FlowLayout> {
@@ -16,7 +15,7 @@ class DSLTestKuwuScreen : BaseOwoScreen<FlowLayout>() {
             verticalAlignment = VerticalAlignment.CENTER
             horizontalAlignment = HorizontalAlignment.CENTER
             gap = 4
-            surface = KowoSurface.VANILLA_BLUR
+            surface = Surface.VANILLA_TRANSLUCENT
 
             children {
                 val layout: FlowLayout = verticalFlow(Sizing.content(), Sizing.content()).apply {
