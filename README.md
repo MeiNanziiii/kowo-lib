@@ -24,6 +24,8 @@ dependencies {
 # Example usage
 
 ```kt
+import ua.mei.kowo.dsl.*
+
 class SizingTestKuwuScreen : BaseOwoScreen<FlowLayout>() {
     override fun createAdapter(): OwoUIAdapter<FlowLayout> {
         return OwoUIAdapter.create(this, ::verticalFlow)
@@ -62,7 +64,7 @@ class SizingTestKuwuScreen : BaseOwoScreen<FlowLayout>() {
 
 ```
 
-More examples on [GitHub](https://github.com/MeiNanziiii/kowo-lib/tree/1.21.5/src/test/kotlin/ua/mei/kuwu/client)
+More examples on [GitHub](https://github.com/MeiNanziiii/kowo-lib/tree/1.21.5/src/test/kotlin/ua/mei/kuwu/client/screen)
 
 # TODO
 
