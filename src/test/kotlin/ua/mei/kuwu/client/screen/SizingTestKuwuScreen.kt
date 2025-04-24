@@ -5,6 +5,7 @@ import io.wispforest.owo.ui.container.FlowLayout
 import io.wispforest.owo.ui.core.*
 import net.minecraft.text.ClickEvent
 import ua.mei.kowo.dsl.*
+import java.net.URI
 
 class SizingTestKuwuScreen : BaseOwoScreen<FlowLayout>() {
     override fun createAdapter(): OwoUIAdapter<FlowLayout> {
@@ -36,7 +37,7 @@ class SizingTestKuwuScreen : BaseOwoScreen<FlowLayout>() {
                         }
                     }
                 }
-                +label("bruh".literal.styled { it.withClickEvent(ClickEvent(ClickEvent.Action.OPEN_URL, "https://wispforest.io")) })
+                +label("bruh".literal.styled { it.withClickEvent(ClickEvent.OpenUrl(URI.create("https://wispforest.io"))) })
             }
         }
     }

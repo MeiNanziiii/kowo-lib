@@ -97,6 +97,10 @@ var ParentComponent.positioning: Positioning
         this.positioning(value)
     }
 
+inline fun <reified T : Component> ParentComponent.childById(id: String): T {
+    return this.childById(T::class.java, id)
+}
+
 var Component.verticalSizing: Sizing
     get() = this.verticalSizing().get()
     set(value) {

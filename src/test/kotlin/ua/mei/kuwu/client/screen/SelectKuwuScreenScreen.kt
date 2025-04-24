@@ -33,13 +33,16 @@ class SelectKuwuScreenScreen : BaseOwoScreen<FlowLayout>() {
 
                     children {
                         +button("optimization test".literal) {
-                            client!!.setScreen(TooManyComponentsKuwuScreen())
+                            client?.setScreen(TooManyComponentsKuwuScreen())
+                        }
+                        +button("smoltine".literal) {
+                            client?.setScreen(SmolComponentTestKuwuScreen())
                         }
                         +button("sizenite".literal) {
-                            client!!.setScreen(SizingTestKuwuScreen())
+                            client?.setScreen(SizingTestKuwuScreen())
                         }
                         +button("dsl test".literal) {
-                            client!!.setScreen(DSLTestKuwuScreen())
+                            client?.setScreen(DSLTestKuwuScreen())
                         }
                     }
                 }
