@@ -63,3 +63,9 @@ class SizingTestKuwuScreen : BaseOwoScreen<FlowLayout>() {
 ```
 
 More examples on [GitHub](https://github.com/MeiNanziiii/kowo-lib/tree/1.21.5/src/test/kotlin/ua/mei/kuwu/client)
+
+# TODO
+
+- [ ] More examples
+- [ ] Simplified way to add child to parent component
+- [ ] Styling with MSS (Minecraft Style Sheets)
