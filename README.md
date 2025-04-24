@@ -2,12 +2,6 @@
 
 Fancy™ kotlin syntax for [oωo-lib](https://modrinth.com/mod/owo-lib)
 
-| Pros                | Cons                                    |
-|---------------------|-----------------------------------------|
-| Greater flexibility | Limited support for oωo-lib features    |
-| Fancy™ syntax       | Updates arrive later than oωo-lib       |
-| Uses kotlin         | Performance slightly lower than oωo-lib |
-
 # Setup
 
 In your `build.gradle` file, add these lines:
@@ -15,45 +9,57 @@ In your `build.gradle` file, add these lines:
 ```gradle
 repositories {
     maven { url "https://api.modrinth.com/maven" }
+    maven { url "https://maven.wispforest.io/releases }
 }
 
 dependencies {
-    modImplementation include("maven.modrinth:kowo-lib:0.12.20+1.21.4")
+    modImplementation include("maven.modrinth:kowo-lib:0.12.20+1.21.5")
+
+    modImplementation "io.wispforest:owo-lib:0.12.20+1.21.5"
     // only if you plan to use owo-config
-    // annotationProcessor "io.wispforest:owo-lib:0.12.20+1.21.4"
+    // annotationProcessor "io.wispforest:owo-lib:0.12.20+1.21.5"
 }
 ```
 
 # Example usage
 
 ```kt
-class ButtonTestScreen : BaseKowoScreen<FlowLayout>() {
-    override fun createRoot(horizontalSizing: Sizing, verticalSizing: Sizing): FlowLayout {
-        return Containers.verticalFlow(horizontalSizing, verticalSizing)
+class SizingTestKuwuScreen : BaseOwoScreen<FlowLayout>() {
+    override fun createAdapter(): OwoUIAdapter<FlowLayout> {
+        return OwoUIAdapter.create(this, ::verticalFlow)
     }
 
-    override fun build() {
-        // like rootComponent, but better
+    override fun build(rootComponent: FlowLayout) {
         root {
-            // components can be stored in variables...
-            val exampleLabel = label {
-                text("Example screen: 0".literal())
-            }
+            verticalAlignment = VerticalAlignment.CENTER
+            horizontalAlignment = HorizontalAlignment.CENTER
 
-            // or directly added to the root
-            button {
-                message = "Example button".literal()
+            children {
+                +stack(Sizing.content(), Sizing.content()).apply {
+                    padding {
+                        all(15)
+                    }
+                    horizontalAlignment = HorizontalAlignment.CENTER
+                    surface = Surface.panelWithInset(6)
 
-                // variables can be stored within components
-                var value = 0
-                onPress {
-                    // components stored in variables can be modified
-                    exampleLabel.text("Example screen: ${++value}".literal())
+                    val animation: Animation<Sizing> = horizontalSizing().animate(500, Easing.CUBIC, 75.fill)
+
+                    children {
+                        +button("initialize sizenite".literal).apply {
+                            horizontalSizing = 50.fill
+
+                            onPress {
+                                animation.reverse()
+                            }
+                        }
+                    }
                 }
+                +label("bruh".literal.styled { it.withClickEvent(ClickEvent.OpenUrl(URI.create("https://wispforest.io"))) })
             }
         }
     }
 }
+
 ```
 
-More examples on [GitHub](https://github.com/MeiNanziiii/kowo-lib/tree/main/src/test/kotlin/ua/mei/kuwu/client)
+More examples on [GitHub](https://github.com/MeiNanziiii/kowo-lib/tree/1.21.5/src/test/kotlin/ua/mei/kuwu/client)
