@@ -40,7 +40,6 @@ dependencies {
     modImplementation(libs.fabric.api)
 
     modImplementation(libs.owo.lib)
-    include(libs.owo.lib)
 }
 
 java {
