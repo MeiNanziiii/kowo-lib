@@ -9,7 +9,7 @@ In your `build.gradle` file, add these lines:
 ```gradle
 repositories {
     maven { url "https://api.modrinth.com/maven" }
-    maven { url "https://maven.wispforest.io/releases }
+    maven { url "https://maven.wispforest.io/releases" }
 }
 
 dependencies {
