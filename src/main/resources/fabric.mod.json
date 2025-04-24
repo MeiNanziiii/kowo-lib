@@ -28,6 +28,6 @@
         "fabric": "*",
         "fabric-language-kotlin": "*",
         "minecraft": ">=${minecraft_version}",
-        "owo": "*"
+        "owo": ">=${version}"
     }
 }
