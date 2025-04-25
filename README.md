@@ -1,4 +1,4 @@
-![Icon](https://raw.githubusercontent.com/MeiNanziiii/kowo-lib/main/images/icon_256px.png)
+![Icon](https://raw.githubusercontent.com/BonfireMC/kowo-lib/main/images/icon_256px.png)
 
 Fancy™ kotlin syntax for [oωo-lib](https://modrinth.com/mod/owo-lib)
 
@@ -64,7 +64,7 @@ class SizingTestKuwuScreen : BaseOwoScreen<FlowLayout>() {
 
 ```
 
-More examples on [GitHub](https://github.com/MeiNanziiii/kowo-lib/tree/1.21.5/src/test/kotlin/ua/mei/kuwu/client/screen)
+More examples on [GitHub](https://github.com/BonfireMC/kowo-lib/tree/1.21.5/src/test/kotlin/ua/mei/kuwu/client/screen)
 
 # TODO
 
