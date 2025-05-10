@@ -13,7 +13,7 @@ repositories {
 }
 
 dependencies {
-    modImplementation include("maven.modrinth:kowo-lib:0.12.20+1.21.5")
+    modImplementation include("maven.modrinth:kowo-lib:0.12.20b+1.21.5")
 
     modImplementation "io.wispforest:owo-lib:0.12.20+1.21.5"
     // only if you plan to use owo-config
