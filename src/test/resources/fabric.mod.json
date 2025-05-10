@@ -15,13 +15,13 @@
     "entrypoints": {
         "main": [
             {
-                "value": "ua.mei.kuwu.Kuwu",
+                "value": "xyz.bonfiremc.kuwu.Kuwu",
                 "adapter": "kotlin"
             }
         ],
         "client": [
             {
-                "value": "ua.mei.kuwu.client.KuwuClient",
+                "value": "xyz.bonfiremc.kuwu.client.KuwuClient",
                 "adapter": "kotlin"
             }
         ]

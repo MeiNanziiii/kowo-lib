@@ -16,7 +16,7 @@
     "entrypoints": {
         "main": [
             {
-                "value": "ua.mei.kowo.Kowo",
+                "value": "xyz.bonfiremc.kowo.Kowo",
                 "adapter": "kotlin"
             }
         ]

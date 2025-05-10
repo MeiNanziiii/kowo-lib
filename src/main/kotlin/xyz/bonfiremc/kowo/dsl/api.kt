@@ -1,4 +1,6 @@
-package ua.mei.kowo.dsl
+@file:Suppress("UNUSED")
+
+package xyz.bonfiremc.kowo.dsl
 
 import io.wispforest.owo.ui.base.BaseOwoScreen
 import io.wispforest.owo.ui.component.*
@@ -11,13 +13,14 @@ import net.minecraft.entity.Entity
 import net.minecraft.item.ItemStack
 import net.minecraft.text.MutableText
 import net.minecraft.text.Text
-import ua.mei.kowo.mixin.BaseOwoScreenAccessor
-import ua.mei.kowo.mixin.GridLayoutAccessor
+import xyz.bonfiremc.kowo.mixin.BaseOwoScreenAccessor
+import xyz.bonfiremc.kowo.mixin.GridLayoutAccessor
 
 // -------
 // oωo-lib
 // -------
 
+@Deprecated("Directly use unaryPlus in apply block")
 class ChildrenBuilder() {
     val children: MutableList<Component> = mutableListOf()
 
@@ -27,6 +30,7 @@ class ChildrenBuilder() {
     }
 }
 
+@Deprecated("Directly use unaryPlus in apply block")
 fun GridLayout.children(builder: ChildrenBuilder.() -> Unit) {
     this as GridLayoutAccessor
 
@@ -43,12 +47,36 @@ fun GridLayout.children(builder: ChildrenBuilder.() -> Unit) {
     }
 }
 
+@Deprecated("Directly use unaryPlus in apply block")
 fun FlowLayout.children(builder: ChildrenBuilder.() -> Unit) {
     children(ChildrenBuilder().apply(builder).children)
 }
 
+@Deprecated("Directly use unaryPlus in apply block")
 fun StackLayout.children(builder: ChildrenBuilder.() -> Unit) {
     children(ChildrenBuilder().apply(builder).children)
+}
+
+private fun ParentComponent.tryChild(component: Component) {
+    when (this) {
+        is FlowLayout -> this.child(component)
+        is StackLayout -> this.child(component)
+        is GridLayout -> {
+            this as GridLayoutAccessor
+
+            val size: Int = this.children.size
+            val row: Int = size / this.rows - 1
+            val col: Int = size % this.columns - 1
+
+            this.child(component, row, col)
+        }
+    }
+}
+
+context(parent: ParentComponent)
+operator fun <C : Component> C.unaryPlus(): C {
+    parent.tryChild(this)
+    return this
 }
 
 val Int.fixed: Sizing
@@ -91,12 +119,6 @@ var ParentComponent.allowOverflow: Boolean
         this.allowOverflow(value)
     }
 
-var ParentComponent.positioning: Positioning
-    get() = this.positioning().get()
-    set(value) {
-        this.positioning(value)
-    }
-
 inline fun <reified T : Component> ParentComponent.childById(id: String): T {
     return this.childById(T::class.java, id)
 }
@@ -111,6 +133,12 @@ var Component.horizontalSizing: Sizing
     get() = this.horizontalSizing().get()
     set(value) {
         this.horizontalSizing(value)
+    }
+
+var Component.positioning: Positioning
+    get() = this.positioning().get()
+    set(value) {
+        this.positioning(value)
     }
 
 var Component.sizing: Sizing
@@ -154,6 +182,12 @@ var Component.y: Int
     set(value) {
         this.updateY(value)
     }
+
+val Component.parent: ParentComponent?
+    get() = this.parent()
+
+val Component.root: ParentComponent?
+    get() = this.root()
 
 var FlowLayout.gap: Int
     get() = this.gap()

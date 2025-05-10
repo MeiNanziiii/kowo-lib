@@ -1,4 +1,4 @@
-package ua.mei.kowo.dsl
+package xyz.bonfiremc.kowo.dsl
 
 import io.wispforest.owo.ui.container.*
 import io.wispforest.owo.ui.core.Component

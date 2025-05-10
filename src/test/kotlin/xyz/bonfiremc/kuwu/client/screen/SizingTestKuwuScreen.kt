@@ -1,36 +1,23 @@
-![Icon](https://raw.githubusercontent.com/BonfireMC/kowo-lib/main/images/icon_256px.png)
+package xyz.bonfiremc.kuwu.client.screen
 
-Fancy™ kotlin syntax for [oωo-lib](https://modrinth.com/mod/owo-lib)
-
-# Setup
-
-In your `build.gradle` file, add these lines:
-
-```groovy
-repositories {
-    maven { url "https://api.modrinth.com/maven" }
-    maven { url "https://maven.wispforest.io/releases" }
-}
-
-dependencies {
-    modImplementation include("maven.modrinth:kowo-lib:0.12.20+1.21.5")
-
-    modImplementation "io.wispforest:owo-lib:0.12.20+1.21.5"
-    // only if you plan to use owo-config
-    // annotationProcessor "io.wispforest:owo-lib:0.12.20+1.21.5"
-}
-
-kotlin {
-    compilerOptions {
-        freeCompilerArgs.add("-Xcontext-parameters")
-    }
-}
-```
-
-# Example usage
-
-```kt
-import xyz.bonfiremc.kowo.dsl.*
+import io.wispforest.owo.ui.base.BaseOwoScreen
+import io.wispforest.owo.ui.container.FlowLayout
+import io.wispforest.owo.ui.core.*
+import net.minecraft.text.ClickEvent
+import xyz.bonfiremc.kowo.dsl.button
+import xyz.bonfiremc.kowo.dsl.fill
+import xyz.bonfiremc.kowo.dsl.horizontalAlignment
+import xyz.bonfiremc.kowo.dsl.horizontalSizing
+import xyz.bonfiremc.kowo.dsl.label
+import xyz.bonfiremc.kowo.dsl.literal
+import xyz.bonfiremc.kowo.dsl.padding
+import xyz.bonfiremc.kowo.dsl.root
+import xyz.bonfiremc.kowo.dsl.stack
+import xyz.bonfiremc.kowo.dsl.surface
+import xyz.bonfiremc.kowo.dsl.unaryPlus
+import xyz.bonfiremc.kowo.dsl.verticalAlignment
+import xyz.bonfiremc.kowo.dsl.verticalFlow
+import java.net.URI
 
 class SizingTestKuwuScreen : BaseOwoScreen<FlowLayout>() {
     override fun createAdapter(): OwoUIAdapter<FlowLayout> {
@@ -64,12 +51,3 @@ class SizingTestKuwuScreen : BaseOwoScreen<FlowLayout>() {
         }
     }
 }
-```
-
-More examples on [GitHub](https://github.com/BonfireMC/kowo-lib/tree/1.21.5/src/test/kotlin/ua/mei/kuwu/client/screen)
-
-# TODO
-
-- [x] Simplified way to add child to parent component
-- [ ] More examples
-- [ ] Styling with MSS (Minecraft Style Sheets)

@@ -1,4 +1,4 @@
-package ua.mei.kowo.mixin;
+package xyz.bonfiremc.kowo.mixin;
 
 import io.wispforest.owo.ui.base.BaseOwoScreen;
 import io.wispforest.owo.ui.core.OwoUIAdapter;

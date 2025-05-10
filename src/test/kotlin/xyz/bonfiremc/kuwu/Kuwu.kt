@@ -1,4 +1,4 @@
-package ua.mei.kuwu
+package xyz.bonfiremc.kuwu
 
 import net.fabricmc.api.ModInitializer
 

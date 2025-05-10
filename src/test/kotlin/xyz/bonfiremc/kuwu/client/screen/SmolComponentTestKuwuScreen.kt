@@ -1,11 +1,17 @@
-package ua.mei.kuwu.client.screen
+package xyz.bonfiremc.kuwu.client.screen
 
 import io.wispforest.owo.ui.base.BaseUIModelScreen
 import io.wispforest.owo.ui.component.BoxComponent
 import io.wispforest.owo.ui.component.SlimSliderComponent
 import io.wispforest.owo.ui.container.FlowLayout
 import net.minecraft.util.Identifier
-import ua.mei.kowo.dsl.*
+import xyz.bonfiremc.kowo.dsl.childById
+import xyz.bonfiremc.kowo.dsl.fixed
+import xyz.bonfiremc.kowo.dsl.horizontalSizing
+import xyz.bonfiremc.kowo.dsl.literal
+import xyz.bonfiremc.kowo.dsl.padding
+import xyz.bonfiremc.kowo.dsl.root
+import xyz.bonfiremc.kowo.dsl.value
 
 class SmolComponentTestKuwuScreen() : BaseUIModelScreen<FlowLayout>(FlowLayout::class.java, Identifier.of("kuwu", "smol_components")) {
     override fun build(rootComponent: FlowLayout) {

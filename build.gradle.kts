@@ -52,6 +52,7 @@ java {
 kotlin {
     compilerOptions {
         jvmTarget.set(JvmTarget.JVM_21)
+        freeCompilerArgs.add("-Xcontext-parameters")
     }
 }
 

@@ -1,4 +1,4 @@
-package ua.mei.kowo
+package xyz.bonfiremc.kowo
 
 import net.fabricmc.api.ModInitializer
 import org.apache.logging.log4j.LogManager
