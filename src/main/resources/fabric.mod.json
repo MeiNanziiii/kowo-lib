@@ -5,10 +5,10 @@
     "name": "κoωo",
     "description": "Fancy™ kotlin syntax for oωo-lib",
     "authors": [
-        "MeiNanziiii"
+        "BonfireMC"
     ],
     "contact": {
-        "sources": "https://github.com/MeiNanziiii/kowo-lib"
+        "sources": "https://github.com/BonfireMC/kowo-lib"
     },
     "license": "MIT",
     "icon": "assets/kowo/icon.png",

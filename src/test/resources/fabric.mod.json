@@ -5,10 +5,10 @@
     "name": "κuωu",
     "description": "κoωo testmod",
     "authors": [
-        "MeiNanziiii"
+        "BonfireMC"
     ],
     "contact": {
-        "sources": "https://github.com/MeiNanziiii/kowo-lib"
+        "sources": "https://github.com/BonfireMC/kowo-lib"
     },
     "license": "MIT",
     "environment": "*",

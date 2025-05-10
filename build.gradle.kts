@@ -25,7 +25,7 @@ loom {
 base.archivesName.set("kowo")
 
 version = libs.versions.owo.lib.get()
-group = "ua.mei.kowo"
+group = "xyz.bonfiremc"
 
 repositories {
     maven("https://maven.wispforest.io")
